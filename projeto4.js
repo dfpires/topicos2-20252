@@ -19,9 +19,17 @@ export default function App(){
         setTarefa("")
         console.log(tarefas)
     }
+    
+    const removerTarefa = (id) => {
+        setTarefas((prev) => prev.filter( (t) => t.id != id))
+    }
+
     const renderItem = ({item}) => (
         <View>
             <Text> {item.nome} </Text>
+            <TouchableOpacity onPress={ () => removerTarefa(item.id)}> 
+                Remover
+            </TouchableOpacity>
         </View>
     )
     //carrega da memória ao iniciar
